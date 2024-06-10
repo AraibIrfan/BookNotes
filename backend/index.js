@@ -5,14 +5,14 @@ import cors from 'cors'
 
 
 const app = express()
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 const db = new pg.Client({
-    user: "postgres",
-    host: "localhost",
-    database: "Books",
-    password: "arbshah123",
-    port: 5432,
+    user: process.env.PSQL_USER,
+    host: process.env.PSQL_HOST,
+    database: process.env.PSQL_DATABASE,
+    password: process.env.PSQL_PASSWORD,
+    port: process.env.PSQL_PORT,
 })
 
 db.connect()
